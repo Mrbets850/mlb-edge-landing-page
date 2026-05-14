@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#12031f" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>MLB Edge — Baseball analytics for the modern fan</title>
+    <meta
+      name="description"
+      content="MLB Edge is a baseball analytics workspace. Track pitcher form, batter splits, park factors and matchup context in one fast, modern interface."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MLB Edge — Baseball analytics for the modern fan" />
+    <meta
+      property="og:description"
+      content="A clean, fast analytics workspace for MLB matchups. Pitcher form, batter splits, park factors, weather — all in one view."
+    />
+    <meta property="og:image" content="./assets/og.svg" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MLB Edge — Baseball analytics for the modern fan" />
+    <meta
+      name="twitter:description"
+      content="A clean, fast analytics workspace for MLB matchups. Pitcher form, batter splits, park factors, weather — all in one view."
+    />
+    <meta name="twitter:image" content="./assets/og.svg" />
+
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+
+    <!-- Fonts: Inter for UI, JetBrains Mono for data tickers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- ============ NAV ============ -->
+    <header class="nav" role="banner">
+      <div class="container nav__inner">
+        <a class="brand" href="#top" aria-label="MLB Edge home">
+          <img class="brand__mark" src="./assets/mlb-edge-logo.webp" alt="" width="34" height="34" />
+          <span class="brand__word">MLB&nbsp;Edge</span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#screens">Screens</a>
+          <a href="#access">Free access</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav__cta">
+          <a class="btn btn--ghost" href="#screens">See preview</a>
+          <a class="btn btn--primary" href="./launch.html">Launch MLB Edge</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__glow" aria-hidden="true"></div>
+
+        <div class="container hero__inner">
+          <div class="hero__copy">
+            <span class="eyebrow">
+              <span class="eyebrow__dot"></span>
+              Built for daily slate prep
+            </span>
+
+            <h1 class="hero__title">
+              The analyst's edge for
+              <span class="grad">every MLB matchup.</span>
+            </h1>
+
+            <p class="hero__sub">
+              MLB Edge turns public baseball data into a clean matchup board.
+              Games, slate pitchers, HR sleepers, parlay generators, weather,
+              and hitter-vs-pitcher context — side by side in one app.
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--primary btn--lg" href="./launch.html">
+                Launch MLB Edge
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="btn btn--ghost btn--lg" href="#screens">See it in action</a>
+            </div>
+
+            <p class="hero__fineprint">
+              For research and entertainment. No guarantees, no picks
+              service, no affiliate relationships.
+            </p>
+          </div>
+
+          <!-- Hero visual: stylized matchup card -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="card-matchup">
+              <div class="card-matchup__head">
+                <span class="card-matchup__time">2/2 live sources · Today</span>
+                <span class="badge">11-game slate</span>
+              </div>
+
+              <div class="card-matchup__teams">
+                <div class="team">
+                  <div class="team__logo" data-tone="away">
+                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M5 9c3 2 11 2 14 0M5 15c3-2 11-2 14 0" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="team__name">Away Club</div>
+                    <div class="team__meta">RHP · 3.41 xERA · L5: 2-3</div>
+                  </div>
+                  <div class="team__num">4.2</div>
+                </div>
+
+                <div class="vs">vs</div>
+
+                <div class="team">
+                  <div class="team__logo" data-tone="home">
+                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                      <path d="M4 12l8-7 8 7-8 7z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M9 12h6" stroke="currentColor" stroke-width="1.2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="team__name">Home Club</div>
+                    <div class="team__meta">LHP · 3.88 xERA · L5: 3-2</div>
+                  </div>
+                  <div class="team__num">4.6</div>
+                </div>
+              </div>
+
+              <div class="card-matchup__grid">
+                <div class="stat">
+                  <div class="stat__label">Park factor</div>
+                  <div class="stat__val">1.08 <span class="stat__delta up">HR↑</span></div>
+                </div>
+                <div class="stat">
+                  <div class="stat__label">Wind</div>
+                  <div class="stat__val">11 mph <span class="stat__delta">out to CF</span></div>
+                </div>
+                <div class="stat">
+                  <div class="stat__label">HR impact</div>
+                  <div class="stat__val">+2% <span class="stat__delta up">park</span></div>
+                </div>
+                <div class="stat">
+                  <div class="stat__label">Pitch score</div>
+                  <div class="stat__val">72.6 <span class="stat__delta up">Elite</span></div>
+                </div>
+              </div>
+
+              <div class="card-matchup__chart" aria-hidden="true">
+                <svg viewBox="0 0 240 60" preserveAspectRatio="none" width="100%" height="60">
+                  <defs>
+                    <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#ffd000" stop-opacity="0.42"/>
+                      <stop offset="100%" stop-color="#ffd000" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 45 L20 40 L40 42 L60 30 L80 34 L100 22 L120 26 L140 18 L160 24 L180 14 L200 20 L220 10 L240 16 L240 60 L0 60 Z" fill="url(#g1)"/>
+                  <path d="M0 45 L20 40 L40 42 L60 30 L80 34 L100 22 L120 26 L140 18 L160 24 L180 14 L200 20 L220 10 L240 16" fill="none" stroke="#ffd000" stroke-width="1.6"/>
+                </svg>
+                <div class="card-matchup__chartfoot">
+                  <span>Matchup score trend</span>
+                  <span class="mono">+3.2σ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating ticker -->
+            <div class="float-ticker" aria-hidden="true">
+              <span class="mono">xFIP 3.12</span>
+              <span class="mono">wOBA .341</span>
+              <span class="mono">BABIP .298</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SOCIAL PROOF ============ -->
+      <section class="proof">
+        <div class="container">
+          <p class="proof__label">Inside the free app: swipeable tools for every part of the slate</p>
+          <ul class="proof__logos" role="list">
+            <li><span class="logo-placeholder">GAMES</span></li>
+            <li><span class="logo-placeholder">HR&nbsp;SLEEPERS</span></li>
+            <li><span class="logo-placeholder">AI&nbsp;HR&nbsp;PARLAY</span></li>
+            <li><span class="logo-placeholder">RBI&nbsp;EDGE</span></li>
+            <li><span class="logo-placeholder">K&nbsp;GENERATOR</span></li>
+            <li><span class="logo-placeholder">BALLPARK&nbsp;WEATHER</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ FEATURES ============ -->
+      <section class="features" id="features">
+        <div class="container">
+          <header class="section-head">
+            <span class="eyebrow eyebrow--quiet">Features</span>
+            <h2>The tools from your app, packaged for fast slate reads.</h2>
+            <p>
+              Built around the MLB Matchup Board workflow: choose the slate,
+              tap a game, then move through hitters, pitchers, weather, and generators.
+            </p>
+          </header>
+
+          <div class="feature-grid">
+            <article class="feature">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/>
+                  <path d="M7 14l4-4 4 3 5-7"/>
+                </svg>
+              </div>
+              <h3>MLB Matchup Board</h3>
+              <p>Start with the full slate, game cards, probable pitchers, venue context, game status, and quick-switch controls.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+              </div>
+              <h3>Apps &amp; generators tab bar</h3>
+              <p>Jump between Games, Slate Pitchers, HR Sleepers, Total Bases 1.5+, HRR, RBI Edge, AI parlays, and weather tools.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-7.58 8-13a8 8 0 10-16 0c0 5.42 8 13 8 13z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+              </div>
+              <h3>Weather impact by park</h3>
+              <p>See temperature, dew point, wind, rain, sky conditions, and home-run, run, or strikeout impact for the selected ballpark.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+              </div>
+              <h3>Pitcher scores &amp; vulnerability</h3>
+              <p>Review pitch score, strikeout score, xwOBA, K%, WHIFF%, BARREL%, hard-hit rate, and pitch-mix damage allowed.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16v6H4zM4 14h10v6H4z"/>
+                </svg>
+              </div>
+              <h3>Top 3 hitters per game</h3>
+              <p>Surface the strongest hitter profiles with matchup score, barrel rate, fly-ball rate, exit velocity, ISO, and pitches they crush.</p>
+            </article>
+
+            <article class="feature">
+              <div class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+              </div>
+              <h3>PWA install guidance</h3>
+              <p>The app includes install instructions for iPhone and Android so users can add MLB Edge to their home screen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREENSHOTS ============ -->
+      <section class="screens" id="screens">
+        <div class="container">
+          <header class="section-head">
+            <span class="eyebrow eyebrow--quiet">Inside the app</span>
+            <h2>A promo view of the real MLB Edge workflow.</h2>
+            <p>These mock screens mirror the live app structure: slate tools, hitter rankings, pitcher vulnerability, and weather context.</p>
+          </header>
+
+          <div class="screens__tabs" role="tablist" aria-label="Screens">
+            <button class="tab is-active" role="tab" aria-selected="true" data-tab="board">Matchup board</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="pitcher">Pitcher score</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="splits">Top hitters</button>
+          </div>
+
+          <div class="screens__frame">
+            <!-- Placeholder screenshot 1: daily board -->
+            <div class="screen is-active" data-screen="board" role="tabpanel">
+              <div class="screen__chrome">
+                <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                <span class="screen__url mono">MrBets850 · MLB Edge / games · today</span>
+              </div>
+              <div class="screen__body">
+                <div class="board">
+                  <div class="board__row board__row--head mono">
+                    <span>Game</span><span>Pitch</span><span>Weather</span><span>HR</span><span>K</span><span>Status</span>
+                  </div>
+                  <div class="board__row">
+                    <span>COL @ PIT</span><span class="up mono">72.6</span><span class="mono">Neutral</span><span class="mono">+2%</span><span class="mono">55.3</span><span class="mono">Final</span>
+                  </div>
+                  <div class="board__row">
+                    <span>NYY @ BOS</span><span class="mono">61.8</span><span class="mono">Wind out</span><span class="mono">+5%</span><span class="up mono">68.4</span><span class="mono">7:05</span>
+                  </div>
+                  <div class="board__row">
+                    <span>CHC @ MIL</span><span class="up mono">80.1</span><span class="mono">Roof</span><span class="mono">0%</span><span class="mono">59.2</span><span class="mono">8:10</span>
+                  </div>
+                  <div class="board__row">
+                    <span>HOU @ TEX</span><span class="mono">54.9</span><span class="mono">Dome</span><span class="mono">0%</span><span class="mono">64.5</span><span class="mono">8:05</span>
+                  </div>
+                  <div class="board__row">
+                    <span>ATL @ PHI</span><span class="up mono">74.4</span><span class="mono">Warm</span><span class="mono">+3%</span><span class="mono">51.8</span><span class="mono">6:40</span>
+                  </div>
+                  <div class="board__row">
+                    <span>SF @ COL</span><span class="down mono">48.2</span><span class="mono">Rain</span><span class="mono">+1%</span><span class="mono">44.0</span><span class="mono">9:40</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Placeholder screenshot 2: pitcher card -->
+            <div class="screen" data-screen="pitcher" role="tabpanel" hidden>
+              <div class="screen__chrome">
+                <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                <span class="screen__url mono">MLB Edge / pitcher score · vulnerability</span>
+              </div>
+              <div class="screen__body screen__body--pitcher">
+                <div class="pcard">
+                  <div class="pcard__head">
+                    <div>
+                      <div class="pcard__name">Away SP vulnerability</div>
+                      <div class="pcard__meta mono">K% · BB% · xwOBA · BARREL% · HH%</div>
+                    </div>
+                    <div class="pcard__big mono">74.4 <small>EXPLOITABLE</small></div>
+                  </div>
+                  <div class="pcard__grid">
+                    <div><div class="lbl">K%</div><div class="val mono">22.4</div></div>
+                    <div><div class="lbl">BB%</div><div class="val mono">8.1</div></div>
+                    <div><div class="lbl">xwOBA</div><div class="val mono">.341</div></div>
+                    <div><div class="lbl">BARREL%</div><div class="val mono">9.7</div></div>
+                  </div>
+                  <div class="pcard__chart">
+                    <svg viewBox="0 0 320 80" preserveAspectRatio="none" width="100%" height="80" aria-hidden="true">
+                      <path d="M0 50 L30 46 L60 48 L90 38 L120 42 L150 30 L180 34 L210 26 L240 30 L270 22 L300 28 L320 20" fill="none" stroke="#ffd000" stroke-width="2"/>
+                      <path d="M0 60 L30 58 L60 56 L90 54 L120 56 L150 50 L180 52 L210 48 L240 50 L270 46 L300 48 L320 44" fill="none" stroke="#9b2dff" stroke-width="2" stroke-dasharray="3 3"/>
+                    </svg>
+                    <div class="legend mono">
+                      <span><i style="background:#ffd000"></i>Pitch score</span>
+                      <span><i style="background:#9b2dff"></i>Strikeout score</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Placeholder screenshot 3: splits matrix -->
+            <div class="screen" data-screen="splits" role="tabpanel" hidden>
+              <div class="screen__chrome">
+                <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                <span class="screen__url mono">MLB Edge / top 3 hitters · this game</span>
+              </div>
+              <div class="screen__body">
+                <div class="matrix">
+                  <div class="matrix__row matrix__row--head mono">
+                    <span>Hitter</span><span>Score</span><span>BARREL%</span><span>FB%</span><span>EV</span><span>Crush pitch</span>
+                  </div>
+                  <div class="matrix__row"><span>#1 Hitter</span><span class="mono up">185.2</span><span class="mono">14.1</span><span class="mono">43.0</span><span class="mono">91.8</span><span class="mono">Slider</span></div>
+                  <div class="matrix__row"><span>#2 Hitter</span><span class="mono up">162.7</span><span class="mono">11.8</span><span class="mono">39.4</span><span class="mono">90.6</span><span class="mono">4-Seam</span></div>
+                  <div class="matrix__row"><span>#3 Hitter</span><span class="mono up">148.4</span><span class="mono">10.5</span><span class="mono">41.2</span><span class="mono">89.9</span><span class="mono">Sinker</span></div>
+                  <div class="matrix__row"><span>Lineup L5</span><span class="mono">Form</span><span class="mono">AVG</span><span class="mono">L10 HR</span><span class="mono">ISO</span><span class="mono">wOBA</span></div>
+                  <div class="matrix__row"><span>Sort</span><span class="mono">High → Low</span><span class="mono">Tap</span><span class="mono">Swipe</span><span class="mono">Filter</span><span class="mono">Review</span></div>
+                  <div class="matrix__row"><span>Game note</span><span class="mono">Public data</span><span class="mono">No picks</span><span class="mono">Research</span><span class="mono">Only</span><span class="mono">Free</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="screens__note">Illustrative interface. Numbers shown are sample data for layout purposes.</p>
+        </div>
+      </section>
+
+      <!-- ============ FREE ACCESS ============ -->
+      <section class="pricing" id="access">
+        <div class="container">
+          <header class="section-head">
+            <span class="eyebrow eyebrow--quiet">Free access</span>
+            <h2>No paywall. No paid tiers.</h2>
+            <p>MLB Edge is free to use while it grows. Jump in, explore the board, and help shape what comes next.</p>
+          </header>
+
+          <div class="plans">
+            <article class="plan">
+              <div class="plan__head">
+                <h3>Free workspace</h3>
+                <p>For fans, analysts, and creators who want a cleaner way to study every slate.</p>
+              </div>
+              <div class="plan__price">
+                <span class="plan__num">Free</span>
+                <span class="plan__per">to use</span>
+              </div>
+              <ul class="plan__list">
+                <li>MLB Matchup Board and game selector</li>
+                <li>Slate pitchers and pitcher scoring</li>
+                <li>HR Sleepers and RBI Edge Model</li>
+                <li>Ballpark Weather and data status</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="./launch.html">Open the free app</a>
+            </article>
+
+            <article class="plan plan--featured">
+              <div class="plan__ribbon">No subscription</div>
+              <div class="plan__head">
+                <h3>Everything included</h3>
+                <p>Use the app without choosing a plan or comparing locked features.</p>
+              </div>
+              <div class="plan__price">
+                <span class="plan__num">$0</span>
+                <span class="plan__per">/ month</span>
+              </div>
+              <ul class="plan__list">
+                <li>No paid upgrade required</li>
+                <li>AI HR Parlay and AI 1+ Hits Parlay</li>
+                <li>AI K Generator and HR Round Robin</li>
+                <li>Total Bases 1.5+ and HRR 1.5+</li>
+                <li>PWA install instructions</li>
+              </ul>
+              <a class="btn btn--primary btn--block" href="./launch.html">Launch MLB Edge</a>
+            </article>
+
+            <article class="plan">
+              <div class="plan__head">
+                <h3>Built with feedback</h3>
+                <p>Have an idea for a view, filter, or workflow? Send it in as the product evolves.</p>
+              </div>
+              <div class="plan__price">
+                <span class="plan__num">Open</span>
+                <span class="plan__per">roadmap</span>
+              </div>
+              <ul class="plan__list">
+                <li>Public-data research focus</li>
+                <li>Mobile-first Streamlit workflow</li>
+                <li>Twitter-friendly matchup summaries</li>
+                <li>Community-requested refinements</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="./launch.html">Try it free</a>
+            </article>
+          </div>
+
+          <p class="pricing__note">
+            MLB Edge is currently free to use and has no active paywall. It is an independent analytics
+            tool — not affiliated with Major League Baseball or any sportsbook.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="faq" id="faq">
+        <div class="container faq__inner">
+          <header class="section-head section-head--left">
+            <span class="eyebrow eyebrow--quiet">FAQ</span>
+            <h2>Questions, answered straight.</h2>
+            <p>
+              If something here is unclear, we'd rather say so than oversell.
+              Reach out and we'll add it to this list.
+            </p>
+          </header>
+
+          <div class="faq__list">
+            <details>
+              <summary>Does MLB Edge give picks or guaranteed winners?<span class="chev" aria-hidden="true"></span></summary>
+              <p>No. MLB Edge is an analytics workspace. We surface public data and model outputs so you can do your own research. Nothing in the product is a recommendation, and no outcome is guaranteed.</p>
+            </details>
+            <details>
+              <summary>Where does the data come from?<span class="chev" aria-hidden="true"></span></summary>
+              <p>Publicly available sources, including MLB's Statcast feeds and standard public box-score data. We do not use proprietary, insider, or non-public information.</p>
+            </details>
+            <details>
+              <summary>Is MLB Edge affiliated with MLB or a sportsbook?<span class="chev" aria-hidden="true"></span></summary>
+              <p>No. MLB Edge is independent and has no affiliation, partnership, or revenue-share arrangement with Major League Baseball, any team, or any sportsbook.</p>
+            </details>
+            <details>
+              <summary>What platforms do you support?<span class="chev" aria-hidden="true"></span></summary>
+              <p>The web app works on modern desktop and mobile browsers through Streamlit, and the app includes iPhone and Android install instructions for home-screen access.</p>
+            </details>
+            <details>
+              <summary>How accurate are the models?<span class="chev" aria-hidden="true"></span></summary>
+              <p>We publish methodology and back-test summaries in the app changelog. Baseball is famously noisy at the single-game level — treat any model output as one input among many.</p>
+            </details>
+            <details>
+              <summary>How much does MLB Edge cost?<span class="chev" aria-hidden="true"></span></summary>
+              <p>MLB Edge is free to use and does not currently have paid plans, subscriptions, or a credit-card requirement.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FINAL CTA ============ -->
+      <section class="cta" id="cta">
+        <div class="container cta__inner">
+          <div class="cta__glow" aria-hidden="true"></div>
+          <h2>Read the matchup before first pitch.</h2>
+          <p>MLB Edge is live on Streamlit and free to use. Open the app, test the board, and use the data as one input in your own research.</p>
+          <div class="cta__actions">
+            <a class="btn btn--primary btn--lg" href="./launch.html">Launch MLB Edge</a>
+            <a class="btn btn--ghost btn--lg" href="#screens">Preview the workflow</a>
+          </div>
+          <p class="cta__legal">No credit card required. Independent analytics for research and entertainment only.</p>
+          <p class="cta__fallback">If the preview blocks the button, copy this URL: <span class="mono">https://mrbets850.streamlit.app/</span></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="foot">
+      <div class="container foot__inner">
+        <div class="foot__brand">
+          <img class="foot__logo" src="./assets/mlb-edge-logo.webp" alt="" width="28" height="28" />
+          <span>MLB Edge</span>
+        </div>
+        <nav class="foot__nav" aria-label="Footer">
+          <a href="#features">Features</a>
+          <a href="#access">Free access</a>
+          <a href="#faq">FAQ</a>
+          <a href="./launch.html">Launch app</a>
+        </nav>
+        <p class="foot__legal">
+          © <span id="yr"></span> MLB Edge. Independent analytics — not affiliated with MLB or any sportsbook.
+          For research and entertainment only.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
