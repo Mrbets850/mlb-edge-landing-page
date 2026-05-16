@@ -73,6 +73,6 @@ The copy is deliberately conservative:
 
 - Replace placeholder publisher names in the social-proof row (`DIAMOND DIGEST`, etc.) with real logos when available.
 - Replace the three illustrative app mocks under **Screens** with real product screenshots when ready.
-- Update the Streamlit launch links if the app moves from `https://mrbets850.streamlit.app/` to a custom domain.
+- The app launch links use the branded shortcut `https://app.themlbedge.com/`, which currently redirects to the underlying Streamlit deployment (`https://mrbets850.streamlit.app/`). Update both pointers if the app moves again.
 - Update OG/Twitter `og:url` once a final domain is chosen.
 ```
